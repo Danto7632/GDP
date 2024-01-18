@@ -11,9 +11,17 @@ public class PlayerMove : MonoBehaviour {
     public float moveSpeed = 5.0f;
     public float unHitTime = 1.0f;
 
+    public bool isFacingRight;
+
     public Rigidbody2D rb;
+    public SpriteRenderer sp;
+
+    void Awake() {
+        isFacingRight = true;
+    }
 
     void Update() {
+        Flip();
     }
 
     void FixedUpdate() {
@@ -22,5 +30,16 @@ public class PlayerMove : MonoBehaviour {
 
         movement.Normalize();
         rb.velocity = movement * moveSpeed;
+    }
+
+    void Flip() {
+        if(movement.x > 0 && !isFacingRight) {
+            sp.flipX = !sp.flipX;
+            isFacingRight = !isFacingRight;
+        }
+        else if(movement.x < 0 && isFacingRight) {
+            sp.flipX = !sp.flipX;
+            isFacingRight = !isFacingRight;
+        }
     }
 }
