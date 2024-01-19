@@ -113,8 +113,8 @@ TextureImporter:
       name: Mouse_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 10
+        x: 0
+        y: 51
         width: 24
         height: 13
       alignment: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86180cb6a4ed4387b57a484ecca07be
-      internalID: 1917192015
+      spriteID: 085daa36d789d4feb9bc5255618c5e52
+      internalID: -566467380
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: Mouse_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 10
-        width: 24
-        height: 13
+        x: 32
+        y: 51
+        width: 22
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d1340153bd443b6935719aaac1e36c
-      internalID: -419143866
+      spriteID: b2a42847db9aa4019a8f7fd3282e5a02
+      internalID: 1797763429
       vertices: []
       indices: 
       edges: []
@@ -155,8 +155,8 @@ TextureImporter:
       name: Mouse_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 10
+        x: 0
+        y: 19
         width: 24
         height: 13
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90b1011c2660643d2ac054ba3ff76910
-      internalID: -1319113850
+      spriteID: 4d11791f20ce241b4b9297077e91a4a7
+      internalID: -462228331
       vertices: []
       indices: 
       edges: []
@@ -176,10 +176,10 @@ TextureImporter:
       name: Mouse_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 10
-        width: 24
-        height: 13
+        x: 32
+        y: 19
+        width: 22
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edf80800b569f427580c9d63f8213e9a
-      internalID: -677690429
+      spriteID: 7067c8df188ea4b9d8a132fea3cc6533
+      internalID: -70639319
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mouse_0: 1917192015
-      Mouse_1: -419143866
-      Mouse_2: -1319113850
-      Mouse_3: -677690429
+      Mouse_0: -566467380
+      Mouse_1: 1797763429
+      Mouse_2: -462228331
+      Mouse_3: -70639319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
