@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da2a1c491dbb245a8ab8984ebfdb96a4
+guid: 8751cf9f9d11a410089028122a70e304
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bat_0
+      name: Rabbit_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 11
         y: 8
-        width: 26
-        height: 20
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0fff6da88d6f4ecea1739d0133f14e5
-      internalID: -304072356
+      spriteID: a5753666076de44968d9ae13fcce2bcb
+      internalID: -919969533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_1
+      name: Rabbit_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 43
         y: 8
-        width: 31
-        height: 20
+        width: 14
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b56579fb4c0be427896c47cce9f0489f
-      internalID: -1751965371
+      spriteID: 5c659d4ca75bd467c9533226ae75d968
+      internalID: -1607204563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_2
+      name: Rabbit_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 75
         y: 8
-        width: 22
-        height: 20
+        width: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dcf9cc57a39c49daaf8fe2da68dd354
-      internalID: 1511392591
+      spriteID: fafe82413e69948f78b17b1a67a48c69
+      internalID: -1443799635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bat_3
+      name: Rabbit_3
       rect:
         serializedVersion: 2
-        x: 97
-        y: 8
-        width: 31
-        height: 20
+        x: 107
+        y: 7
+        width: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b70e87282454f416e900097b92aa909e
-      internalID: 1450476978
+      spriteID: e4efeb526add64a24b5f15ed6b007836
+      internalID: 1874418914
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bat_0: -304072356
-      Bat_1: -1751965371
-      Bat_2: 1511392591
-      Bat_3: 1450476978
+      Rabbit_0: -919969533
+      Rabbit_1: -1607204563
+      Rabbit_2: -1443799635
+      Rabbit_3: 1874418914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
