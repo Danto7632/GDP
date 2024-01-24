@@ -51,3 +51,15 @@ public class EnemySpawn : MonoBehaviour {
 
 
 }
+/*
+
+X와 Y의 값을 받는다.
+6.17     0.15
+
+X와 Y의 값에 랜덤한 값을 증감 시킬 X1 Y1을 생성하여
+X값과 Y값에 증감한다.
+
+
+
+
+*/

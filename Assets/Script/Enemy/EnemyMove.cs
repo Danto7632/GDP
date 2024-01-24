@@ -32,10 +32,22 @@ public class EnemyMove : MonoBehaviour {
         if(distance > 0.1f) {
             Vector2 movement = direction.normalized * speed * Time.deltaTime;
             rb.MovePosition(rb.position + movement);
+
+            // 수정된 부분
+            Flip(movement);
         }
         else {
             Debug.Log("idk");
             FindPlayer();
+        }
+    }
+
+    // 수정된 플립 함수
+    void Flip(Vector2 movement) {
+        if (movement.x > 0) {
+            sp.flipX = false; // 오른쪽으로 갈 때는 flipX를 false로 설정
+        } else if (movement.x < 0) {
+            sp.flipX = true; // 왼쪽으로 갈 때는 flipX를 true로 설정
         }
     }
 }
