@@ -3,25 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
-    public int[] spawnPoint = new int[16];
+    public int[] spawnPointIndex = new int[16];
     public int spawnNumber;
     public int plusNumber;
+    public float plusVectorX;
+    public float plusVectorY;
     public int[] spawnRange = new int[2];
 
     public bool gameOver = false;
     public float spawnTime = 3.0f;
 
-    public GameObject Enemy;
+    public GameObject EnemyPrefab;
+    public GameObject SpawnEnemies;
+    public GameObject EnemyNode;
+
+    public Dictionary<int, Vector2> coordinateDictionary = new Dictionary<int, Vector2>();
 
     void Start() {
+        List<Vector2> coordinates = new List<Vector2>
+        {
+            new Vector2(-30, 30),
+            new Vector2(-15, 30),
+            new Vector2(0, 30),
+            new Vector2(15, 30),
+            new Vector2(30, 30),
+            new Vector2(30, 15),
+            new Vector2(30, 0),
+            new Vector2(30, -15),
+            new Vector2(30, -30),
+            new Vector2(15, -30),
+            new Vector2(0, -30),
+            new Vector2(-15, -30),
+            new Vector2(-30, -30),
+            new Vector2(-30, -15),
+            new Vector2(-30, 0),
+            new Vector2(-30, 15)
+        };
+
+        // 값들을 Dictionary에 추가
+        for (int i = 0; i < coordinates.Count; i++)
+        {
+            coordinateDictionary.Add(i, coordinates[i]);
+        }
+
         int seed = (int)System.DateTime.Now.Ticks;
         Random.InitState(seed);
 
         spawnNumber = Random.Range(0, 16);
         spawnNumber = 10;
-        for(int i = 0; i < 10; i++) {
-            SpawnEnemy();
-        }
+        
+        StartCoroutine(RepeatCoroutine());
     }
 
     void SpawnEnemy() {
@@ -30,10 +61,10 @@ public class EnemySpawn : MonoBehaviour {
 
         for(int i = 0; i < 2; i++) {
             spawnRange[i] %= 16;
-            if(spawnRange[i]< 0) {
-                spawnRange[i] += 17;
+            if(spawnRange[i] < 0) {
+                spawnRange[i] += 16; //확인필요
             }
-            Debug.Log(spawnPoint[spawnRange[i]]);
+            Debug.Log(spawnPointIndex[spawnRange[i]]);
         }
 
         plusNumber = Random.Range(0, 8);
@@ -47,10 +78,24 @@ public class EnemySpawn : MonoBehaviour {
         }
 
         Debug.Log("새로 정해진 spawnNumber : " + spawnNumber);
+        Debug.Log("Value for Key " + spawnNumber + ": " + coordinateDictionary[spawnNumber]);
+
+        plusVectorX = Random.Range(-7.5f, 7.5f);
+        plusVectorY = Random.Range(-7.5f, 7.5f);
+
+        SpawnEnemies = Instantiate(EnemyPrefab, new Vector2(coordinateDictionary[spawnNumber].x + plusVectorX, coordinateDictionary[spawnNumber].y + plusVectorY), Quaternion.identity);
+        SpawnEnemies.transform.parent = EnemyNode.transform;
     }
 
-
+    IEnumerator RepeatCoroutine() {
+        while (!gameOver) {
+            yield return new WaitForSeconds(3f);
+            SpawnEnemy();
+        }
+    }
 }
+
+
 /*
 
 X와 Y의 값을 받는다.

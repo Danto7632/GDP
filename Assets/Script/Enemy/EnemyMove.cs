@@ -37,7 +37,6 @@ public class EnemyMove : MonoBehaviour {
             Flip(movement);
         }
         else {
-            Debug.Log("idk");
             FindPlayer();
         }
     }
