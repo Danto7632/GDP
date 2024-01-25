@@ -10,7 +10,7 @@ public class EnemyMove : MonoBehaviour {
     public Rigidbody2D rb;
     public SpriteRenderer sp;
 
-    public float speed = 2.0f;
+    public float speed = 15.0f;
 
     void Start() {
         FindPlayer();
