@@ -193,7 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbac743414bc54db7b1c09c67defde5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {fileID: 0}
-  Enemy: {fileID: 0}
-  packetSpeed: 20
+  packetSpeed: 30
+  closestDistance: Infinity
+  currentPosition: {x: 0, y: 0}
+  enemyPosition: {x: 0, y: 0}
   rb: {fileID: 8050616960344393577}

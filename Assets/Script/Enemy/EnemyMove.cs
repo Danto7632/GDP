@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour {
     public GameObject Player;
+    public GameObject ExpPrefab;
+    public GameObject Exp;
+    public GameObject ExpNode;
+
     public Transform playerPosition;
     public Transform Enemy;
 
@@ -12,9 +16,14 @@ public class EnemyMove : MonoBehaviour {
 
     public float speed = 15.0f;
     public int Hp = 2;
+    public int ExpValue = 1;
+
+    public float plusVectorX;
+    public float plusVectorY;
 
     void Start() {
         FindPlayer();
+        ExpNode = GameObject.FindWithTag("ExpNode");
     }
 
     void Update() {
@@ -48,6 +57,7 @@ public class EnemyMove : MonoBehaviour {
                 Debug.Log("Hit");
                 Hp--;
                 if(Hp <= 0) {
+                    ExpDrop();
                     Destroy(gameObject);
                 }
                 break;
@@ -60,6 +70,16 @@ public class EnemyMove : MonoBehaviour {
             sp.flipX = false; // 오른쪽으로 갈 때는 flipX를 false로 설정
         } else if (movement.x < 0) {
             sp.flipX = true; // 왼쪽으로 갈 때는 flipX를 true로 설정
+        }
+    }
+
+    void ExpDrop() {
+        for(int i = 0; i < ExpValue; i++) {
+            plusVectorX = Random.Range(-0.1f, 0.1f);
+            plusVectorY = Random.Range(-0.1f, 0.1f);
+
+            Exp = Instantiate(ExpPrefab, new Vector2(transform.position.x + plusVectorX, transform.position.y + plusVectorY), Quaternion.identity);
+            Exp.transform.parent = ExpNode.transform;
         }
     }
 }
