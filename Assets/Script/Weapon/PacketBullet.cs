@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class PacketBullet : MonoBehaviour {
     public Transform enemyPosition;
-    public GameObject Enemy;
     public float packetSpeed = 20.0f;
 
     public Rigidbody2D rb;
-
-    void Start() {
-        FindEnemy();
-    }
 
     void Update() {
         followEnemy();
     }
 
-    void FindEnemy() {
-        Enemy = GameObject.FindWithTag("Enemy");
+    public void FindEnemy(Collider2D Enemy) {
         enemyPosition = Enemy.transform;
     }
 

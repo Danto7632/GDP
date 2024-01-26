@@ -11,6 +11,7 @@ public class EnemyMove : MonoBehaviour {
     public SpriteRenderer sp;
 
     public float speed = 15.0f;
+    public int Hp = 2;
 
     void Start() {
         FindPlayer();
@@ -38,6 +39,18 @@ public class EnemyMove : MonoBehaviour {
         }
         else {
             FindPlayer();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        switch(LayerMask.LayerToName(other.gameObject.layer)) {    
+            case "Packet" :
+                Debug.Log("Hit");
+                Hp--;
+                if(Hp <= 0) {
+                    Destroy(gameObject);
+                }
+                break;
         }
     }
 

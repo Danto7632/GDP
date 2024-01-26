@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackRange : MonoBehaviour {
     public GameObject WeaponPrefab;
     public GameObject Packet;
+    public PacketBullet packetBullet;
 
     public float AttackSpeed = 2.0f;
 
@@ -17,14 +18,16 @@ public class AttackRange : MonoBehaviour {
         }
     }
 
-    void Attack() {
+    void Attack(Collider2D Enemy) {
         Packet = Instantiate(WeaponPrefab, this.transform.position, Quaternion.identity);
+        packetBullet = Packet.GetComponent<PacketBullet>();
+        packetBullet.FindEnemy(Enemy);
     }
 
     IEnumerator RepeatCoroutine(Collider2D Enemy) {
         while(Enemy.gameObject != null) {
             yield return new WaitForSeconds(AttackSpeed);
-            Attack();
+            Attack(Enemy);
         }
     }
     
