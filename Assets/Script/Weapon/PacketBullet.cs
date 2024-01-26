@@ -9,25 +9,40 @@ public class PacketBullet : MonoBehaviour {
     public Rigidbody2D rb;
 
     void Update() {
+        if (!rb || rb.IsSleeping()) {
+            // Rigidbody가 없거나 이미 소멸된 경우
+            return;
+        }
+
         followEnemy();
     }
 
     public void FindEnemy(Collider2D Enemy) {
-        enemyPosition = Enemy.transform;
+        if (Enemy != null && Enemy.transform != null) {
+            enemyPosition = Enemy.transform;
+        }
     }
 
     void followEnemy() {
-        Vector2 direction = enemyPosition.position - this.transform.position;
-        
-        Vector2 movement = direction.normalized * packetSpeed * Time.deltaTime;
-        rb.MovePosition(rb.position + movement);
+        if (enemyPosition != null) {
+            Vector2 direction = (Vector2)enemyPosition.position - rb.position;
+
+            Vector2 movement = direction.normalized * packetSpeed * Time.deltaTime;
+            rb.MovePosition(rb.position + movement);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        switch(LayerMask.LayerToName(other.gameObject.layer)) {    
-            case "Enemy" :
-                Destroy(gameObject);
-                break;
+        if (other == null) {
+            return; // null 체크
+        }
+
+        string layerName = LayerMask.LayerToName(other.gameObject.layer);
+        
+        if (layerName == "Enemy") {
+            Destroy(gameObject);
+        } else {
+            Destroy(gameObject, 3.0f);
         }
     }
 }
