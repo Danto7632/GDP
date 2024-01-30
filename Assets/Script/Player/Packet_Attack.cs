@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackRange : MonoBehaviour {
+public class Packet_Attack : MonoBehaviour {
     public GameObject WeaponPrefab;
     public GameObject Packet;
     public GameObject targetingEnemy;

@@ -2004,8 +2004,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1630524668}
   - component: {fileID: 1630524669}
-  - component: {fileID: 1630524670}
   - component: {fileID: 1630524671}
+  - component: {fileID: 1630524672}
   m_Layer: 7
   m_Name: attackRange
   m_TagString: Untagged
@@ -2063,23 +2063,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5
---- !u!114 &1630524670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630524667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbafdb7e3ca064a18975a2680515cbc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 152273086845768051, guid: 9269b0a3476ae4f07b3eeb2332734330, type: 3}
-  Packet: {fileID: 0}
-  targetingEnemy: {fileID: 0}
-  packetBullet: {fileID: 0}
-  AttackSpeed: 2
 --- !u!50 &1630524671
 Rigidbody2D:
   serializedVersion: 4
@@ -2107,6 +2090,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1630524672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630524667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f9f128439764bddab2a13a643a6100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlueToothPrefab: {fileID: 3804502955445945251, guid: 978ece4620c654f08914009aeb8fa335, type: 3}
+  BlueTooth: {fileID: 0}
+  targetingEnemy: {fileID: 0}
+  blueToothBolt: {fileID: 0}
+  AttackSpeed: 3
 --- !u!1 &1664911609
 GameObject:
   m_ObjectHideFlags: 0

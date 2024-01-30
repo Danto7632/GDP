@@ -14,12 +14,16 @@ public class EnemyMove : MonoBehaviour {
     public Rigidbody2D rb;
     public SpriteRenderer sp;
 
+    public SpriteRenderer wifiSp;
+
     public float speed = 15.0f;
     public int Hp = 2;
     public int ExpValue = 1;
 
     public float plusVectorX;
     public float plusVectorY;
+
+    public bool isWifi = false;
 
     void Start() {
         FindPlayer();
@@ -36,32 +40,67 @@ public class EnemyMove : MonoBehaviour {
     }
 
     void followPlayer() {
-        Vector2 direction = playerPosition.position - this.transform.position;
-        float distance = direction.magnitude;
+       if(!isWifi) {
+            Vector2 direction = playerPosition.position - this.transform.position;
+            float distance = direction.magnitude;
 
-        if(distance > 0.1f) {
-            Vector2 movement = direction.normalized * speed * Time.deltaTime;
-            rb.MovePosition(rb.position + movement);
+            if(distance > 0.1f) {
+                Vector2 movement = direction.normalized * speed * Time.deltaTime;
+                rb.MovePosition(rb.position + movement);
 
             // 수정된 부분
-            Flip(movement);
-        }
-        else {
-            FindPlayer();
+                Flip(movement);
+            }
+            else {
+                FindPlayer();
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         switch(LayerMask.LayerToName(other.gameObject.layer)) {    
             case "Packet" :
-                Debug.Log("Hit");
+                Debug.Log("Packet");
                 Hp--;
                 if(Hp <= 0) {
                     ExpDrop();
                     Destroy(gameObject);
                 }
                 break;
-        }
+
+            case "Wifi" :
+                isWifi = true;
+                wifiSp = other.gameObject.GetComponent<SpriteRenderer>();
+                Debug.Log("Wifi");
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+                rb.velocity = new Vector2((wifiSp.flipX == true ? transform.right.x : -transform.right.x) * 4f, 0);
+                Hp--;
+                if(Hp <= 0) {
+                    ExpDrop();
+                    Destroy(gameObject);
+                }
+                StartCoroutine(DelayWifi());
+                break;
+
+            case "BlueTooth" :
+                if(other.gameObject.transform.IsChildOf(this.gameObject.transform)) {
+                    Debug.Log("BlueTooth");
+                    Hp--;
+                    if(Hp <= 0) {
+                        ExpDrop();
+                        Destroy(gameObject);
+                    }
+                }
+                break;
+
+        }   
+    }
+
+    IEnumerator DelayWifi() {
+        yield return new WaitForSeconds(0.5f);
+
+        isWifi = false;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
 
     // 수정된 플립 함수
