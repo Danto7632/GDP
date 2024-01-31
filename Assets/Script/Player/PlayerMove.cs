@@ -6,8 +6,11 @@ public class PlayerMove : MonoBehaviour {
 
     Vector2 movement = new Vector2();
 
+    public GameObject canvas;
+
     public int Hp = 10;
     public int Exp = 0;
+    public int ExpUp = 4;
     public float moveSpeed = 5.0f;
     public float unHitTime = 1.0f;
 
@@ -17,6 +20,7 @@ public class PlayerMove : MonoBehaviour {
     public Rigidbody2D rb;
     public SpriteRenderer sp;
     public BoxCollider2D box2D;
+    public Card card;
 
     void Awake() {
         isFacingRight = true;
@@ -52,6 +56,10 @@ public class PlayerMove : MonoBehaviour {
         }
         if(LayerMask.LayerToName(other.gameObject.layer) == "Exp") {
             Exp++;
+            if(Exp == ExpUp) {
+                ExpUp += 4;
+                card.CardInstantiate();
+            }
         }
     }
 
@@ -62,6 +70,10 @@ public class PlayerMove : MonoBehaviour {
         }
         if(LayerMask.LayerToName(other.gameObject.layer) == "Exp") {
             Exp++;
+            if(Exp == ExpUp) {
+                ExpUp += 4;
+                card.CardInstantiate();
+            }
         }
 
     }
