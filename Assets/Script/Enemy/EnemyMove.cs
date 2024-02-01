@@ -13,17 +13,19 @@ public class EnemyMove : MonoBehaviour {
 
     public Rigidbody2D rb;
     public SpriteRenderer sp;
+    public FireWall fireWall;
 
     public SpriteRenderer wifiSp;
 
     public float speed = 15.0f;
-    public int Hp = 2;
+    public int Hp = 5;
     public int ExpValue = 1;
 
     public float plusVectorX;
     public float plusVectorY;
 
     public bool isWifi = false;
+    public bool isFireWallAllow = true;
 
     void Start() {
         FindPlayer();
@@ -93,14 +95,59 @@ public class EnemyMove : MonoBehaviour {
                 }
                 break;
 
-        }   
+            case "Firewall" :
+                if(isFireWallAllow) {
+                    fireWall = other.gameObject.GetComponent<FireWall>();
+                    Hp -= fireWall.power;
+                    if(Hp <= 0) {
+                        ExpDrop();
+                        Destroy(gameObject);
+                    }
+                    isFireWallAllow = false;
+                    StartCoroutine(DelayFirewall(fireWall.powerDelay));
+                }
+                break;
+
+            case "TrashBomb" :
+                Hp--;
+                if(Hp <= 0) {
+                    ExpDrop();
+                    Destroy(gameObject);
+                }
+                break;
+        }  
     }
+
+    void OnTriggerStay2D(Collider2D other) {
+        switch(LayerMask.LayerToName(other.gameObject.layer)) { 
+            case "Firewall" :
+                if(isFireWallAllow) {
+                    fireWall = other.gameObject.GetComponent<FireWall>();
+                    Hp -= fireWall.power;
+                    if(Hp <= 0) {
+                        ExpDrop();
+                        Destroy(gameObject);
+                    }
+                    isFireWallAllow = false;
+                    StartCoroutine(DelayFirewall(fireWall.powerDelay));
+                }
+                break;
+        } 
+    }
+
+
 
     IEnumerator DelayWifi() {
         yield return new WaitForSeconds(0.5f);
 
         isWifi = false;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+    }
+
+    IEnumerator DelayFirewall(float timer) {
+        yield return new WaitForSeconds(timer);
+
+        isFireWallAllow = true;
     }
 
     // 수정된 플립 함수

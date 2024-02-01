@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8ae4de1e53074535b9c2d58b0ca133b
+guid: f81347a359c13484a9bfb33a2ba2cb29
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WIFI_0
+      name: TrashBomb_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 6
-        width: 16
-        height: 21
+        x: 5
+        y: 5
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,50 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2393be6ee4348400da0b419da4e99808
-      internalID: -1898862513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WIFI_1
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 6
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d453926aa6f8441658805bae14b7f369
-      internalID: 667534587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WIFI_2
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 6
-        width: 16
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0c174c19483b45098c5f3329935dabb
-      internalID: 1095651681
+      spriteID: 990c45d499e6044a693065013f949635
+      internalID: -83289471
       vertices: []
       indices: 
       edges: []
@@ -183,9 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WIFI_0: -1898862513
-      WIFI_1: 667534587
-      WIFI_2: 1095651681
+      TrashBomb_0: -83289471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
