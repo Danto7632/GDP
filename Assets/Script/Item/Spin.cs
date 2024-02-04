@@ -5,8 +5,6 @@ using UnityEngine;
 public class Spin : MonoBehaviour {
 
     public float spinSpeed = 10f;
-    public Vector2 flyingDirection;
-    public float currentRotation;
     public int RandomAngle;
     public int currentAngle;
 
@@ -15,13 +13,15 @@ public class Spin : MonoBehaviour {
     void Start() {
        RandomAngle = Random.Range(0, 360);
 
-       transform.rotation = Quaternion.Euler(0f, 0f, RandomAngle + 135);
+       transform.rotation = Quaternion.Euler(0f, 0f, RandomAngle);
+       currentAngle = RandomAngle + 315;
     }
 
     void Update() {
-        currentRotation = transform.rotation.eulerAngles.z;
+        // 현재 각도를 라디안으로 변환하여 방향 벡터 계산
+        Vector2 direction = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));
 
-        flyingDirection = Quaternion.Euler(0f, 0f, currentRotation) * Vector2.up;
-        rb.velocity = flyingDirection * spinSpeed;
+        // Rigidbody2D의 속도 설정
+        rb.velocity = direction * spinSpeed;
     }
 }
