@@ -9,6 +9,10 @@ public class PillCircle : MonoBehaviour {
     public float rotationSpeed = 100f;
     public float angle = 0f;
 
+    public float radians;
+    public float x;
+    public float y;
+
     public Vector3 center;
 
     void Start() {
@@ -20,10 +24,10 @@ public class PillCircle : MonoBehaviour {
             center = transform.parent.position;
         }
 
-        float radians = Mathf.Deg2Rad * angle;
+        radians = Mathf.Deg2Rad * angle;
 
-        float x = center.x + Mathf.Cos(radians) * radius;
-        float y = center.y + Mathf.Sin(radians) * radius;
+        x = center.x + Mathf.Cos(radians) * radius;
+        y = center.y + Mathf.Sin(radians) * radius;
 
         transform.position = new Vector3(x, y, 0f);
 

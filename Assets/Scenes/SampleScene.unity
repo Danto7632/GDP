@@ -2150,12 +2150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630524667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7ff8ff51b7e4164abbe2a234cf204e, type: 3}
+  m_Script: {fileID: 11500000, guid: abb1a617efb4843a09e4761249bccb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArrowPrefab: {fileID: 4177446658219577645, guid: 2d739fb62dbd74905bd1ef3f699cb4f9, type: 3}
-  Arrow: {fileID: 0}
-  targetingEnemy: {fileID: 0}
+  spinPrefab: {fileID: 6000485165200523062, guid: 81ec17aef207846df813e452cc7c3033, type: 3}
+  Spin: {fileID: 0}
   AttackSpeed: 2
 --- !u!1 &1664911609
 GameObject:

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow_Attack : MonoBehaviour {
-    public GameObject ArrowPrefab;
-    public GameObject Arrow;
+public class Spin_Item : MonoBehaviour {
+    public GameObject spinPrefab;
+    public GameObject Spin;
 
     public float AttackSpeed = 2.0f;
 
@@ -13,7 +13,7 @@ public class Arrow_Attack : MonoBehaviour {
     }
 
     void Attack() {
-        Arrow = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
+        Spin = Instantiate(spinPrefab, transform.position, Quaternion.identity);
         StartCoroutine(RepeatCoroutine());
     }
 

@@ -26,10 +26,6 @@ public class ArrowMouse : MonoBehaviour {
     }
 
     void goForward() {
-        rb.AddForce(direction * arrowSpeed, ForceMode2D.Force);
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        string layerName = LayerMask.LayerToName(other.gameObject.layer);
+        rb.AddForce(direction * arrowSpeed, ForceMode2D.Impulse);
     }
 }
