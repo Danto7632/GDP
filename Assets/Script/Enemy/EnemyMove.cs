@@ -115,6 +115,22 @@ public class EnemyMove : MonoBehaviour {
                     Destroy(gameObject);
                 }
                 break;
+
+            case "Pill" :
+                Hp--;
+                if(Hp <= 0) {
+                    ExpDrop();
+                    Destroy(gameObject);
+                }
+                break;
+
+            case "Arrow" :
+                Hp--;
+                if(Hp <= 0) {
+                    ExpDrop();
+                    Destroy(gameObject);
+                }
+                break;
         }  
     }
 
