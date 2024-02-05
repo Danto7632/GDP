@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - ExpNode
+  - Bee
   layers:
   - Default
   - TransparentFX

@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spin : MonoBehaviour {
-
     public float spinSpeed = 10f;
     public int RandomAngle;
     public int currentAngle;
 
     public Rigidbody2D rb;
 
-    void Start() {
-       RandomAngle = Random.Range(0, 360);
+    public GameObject Bee;
+    public Spin_Item bee;
 
-       transform.rotation = Quaternion.Euler(0f, 0f, RandomAngle);
-       currentAngle = RandomAngle + 315;
+    void Start() {
+        RandomAngle = Random.Range(0, 360);
+
+        transform.rotation = Quaternion.Euler(0f, 0f, RandomAngle);
+        currentAngle = RandomAngle + 315;
+
+        Destroy(gameObject, 5f);
     }
 
     void Update() {
