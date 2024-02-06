@@ -7,6 +7,21 @@ TagManager:
   - Enemy
   - ExpNode
   - Bee
+  - arrowCard
+  - bluetoothCard
+  - bugCard
+  - chargeCard
+  - cpuCard
+  - ctrlzCard
+  - ddosCard
+  - firewallCard
+  - formatCard
+  - hddCard
+  - lagCard
+  - overflowCard
+  - ramCard
+  - recyclebinCard
+  - wifiCard
   layers:
   - Default
   - TransparentFX

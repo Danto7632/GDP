@@ -22,6 +22,24 @@ public class PlayerMove : MonoBehaviour {
     public BoxCollider2D box2D;
     public Card card;
 
+    public GameObject Wifi_Weapon;
+    public GameObject Ddos_Weapon;
+    public GameObject BlueTooth_Weapon;
+    public GameObject Arrow_Weapon;
+    public GameObject Bug_Weapon;
+    public GameObject TrashCan_Weapon;
+    public GameObject Firewall_Weapon;
+    public GameObject Pill_Weapon;
+
+    public GameObject isWifi;
+    public GameObject isDdos;
+    public GameObject isBlue;
+    public GameObject isArrow;
+    public GameObject isBug;
+    public GameObject isTrash;
+    public GameObject isFirewall;
+    public GameObject isPill;
+
     void Awake() {
         isFacingRight = true;
     }
@@ -91,19 +109,104 @@ public class PlayerMove : MonoBehaviour {
         sp.color = color;
         isHit = false;
     }
+
+    public void TagCheck(string tag) {
+        switch(tag) {
+            case "arrowCard" :
+                if(isArrow == null) {
+                    isArrow = Instantiate(Arrow_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isArrow.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+
+            case "bluetoothCard" :
+                if(isBlue == null) {
+                    isBlue = Instantiate(BlueTooth_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isBlue.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+
+            case "bugCard" :
+                if(isBug == null) {
+                    isBug = Instantiate(Bug_Weapon, new Vector2(transform.position.x + 0.4f, transform.position.y + 0.5f), Quaternion.identity);
+                    isBug.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+
+            case "chargeCard" : 
+                Debug.Log("Upgrade");
+                break;
+
+            case "cpuCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "ctrlzCard" : 
+                Debug.Log("Upgrade");
+                break;
+
+            case "ddosCard" :
+                if(isDdos == null) {
+                    isDdos = Instantiate(Ddos_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isDdos.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+
+            case "firewallCard" :
+                if(isFirewall == null) {
+                    isFirewall = Instantiate(Firewall_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isFirewall.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+
+            case "formatCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "hddCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "lagCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "overflowCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "ramCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "recyclebinCard" :
+                Debug.Log("Upgrade");
+                break;
+
+            case "wifiCard" :
+                if(isWifi == null) {
+                    isWifi = Instantiate(Wifi_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isWifi.transform.parent = this.transform;
+                }
+                else {
+                    Debug.Log("Upgrade");
+                }
+                break;
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//

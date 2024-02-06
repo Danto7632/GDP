@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour {
-    public GameObject[] cardPrefab = new GameObject[12];
+    public GameObject[] cardPrefab = new GameObject[15];
+    public GameObject Player;
     public List<int> usedNumbers = new List<int>();
     public int randomNumber;
     public bool isGamePaused = false;
@@ -14,7 +15,7 @@ public class Card : MonoBehaviour {
 
         for (int i = -1; i < 2; i++) {
             randomNumber = GetUniqueRandomNumber();
-            GameObject card = Instantiate(cardPrefab[randomNumber], new Vector2(transform.position.x + (i * 600), transform.position.y), Quaternion.identity);
+            GameObject card = Instantiate(cardPrefab[randomNumber], new Vector2(Player.transform.position.x + (i * 4), Player.transform.position.y), Quaternion.identity);
             card.transform.parent = this.gameObject.transform;
             Time.timeScale = 0f;
         }
