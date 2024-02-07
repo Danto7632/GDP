@@ -45,4 +45,8 @@ public class Spin_Item : MonoBehaviour {
         yield return new WaitForSeconds(AttackSpeed);
         Attack();
     }
+
+    public void Upgrade(float b) {
+        AttackSpeed *= b;
+    }
 }

@@ -15,12 +15,6 @@ public class Pill_Attack : MonoBehaviour {
         Pill_Instantiate();
     }
 
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.P)) {
-            Pill_Instantiate();
-        }
-    }
-
     public void Pill_Instantiate() {
         angleNum = 0;
         Pill = Instantiate(PillPrefab, transform.position, Quaternion.identity);
@@ -34,4 +28,11 @@ public class Pill_Attack : MonoBehaviour {
             }
         }
     }
+
+    public void Upgrade(float b) {
+        foreach (Transform child in transform) {
+            child.GetComponent<PillCircle>().Upgrade(b);
+        }
+    }
+
 }

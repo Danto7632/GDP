@@ -30,4 +30,8 @@ public class TrashBomb_Attack : MonoBehaviour {
         yield return new WaitForSeconds(AttackSpeed);
         Attack(plusVectorX, plusVectorY);
     }
+
+    public void Upgrade(float b) {
+        AttackSpeed *= b;
+    }
 }

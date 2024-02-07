@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArrowMouse : MonoBehaviour {
-
-    public float arrowSpeed = 1f;
-
     public Vector3 mousePosition;
     public Vector2 direction;
 
@@ -26,6 +23,6 @@ public class ArrowMouse : MonoBehaviour {
     }
 
     void goForward() {
-        rb.AddForce(direction * arrowSpeed, ForceMode2D.Impulse);
+        rb.AddForce(direction * 0.01f, ForceMode2D.Impulse);
     }
 }

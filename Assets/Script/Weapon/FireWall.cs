@@ -10,4 +10,8 @@ public class FireWall : MonoBehaviour {
     void Update() {
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
+
+    public void Upgrade(float b) {
+        powerDelay *= b;
+    }
 }

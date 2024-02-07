@@ -32,4 +32,8 @@ public class BlueTooth_Attack : MonoBehaviour {
             }
         }
     }
+
+    public void Upgrade(float b) {
+        AttackSpeed *= b;
+    }
 }

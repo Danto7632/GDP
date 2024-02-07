@@ -7,6 +7,7 @@ public class PillCircle : MonoBehaviour {
 
     public float radius = 1.2f;
     public float rotationSpeed = 100f;
+    public float circleSpeed = 2f;
     public float angle = 0f;
 
     public float radians;
@@ -17,6 +18,7 @@ public class PillCircle : MonoBehaviour {
 
     void Start() {
         Player = transform.parent.gameObject;
+
     }
 
     void Update() {
@@ -31,12 +33,16 @@ public class PillCircle : MonoBehaviour {
 
         transform.position = new Vector3(x, y, 0f);
 
-        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward * circleSpeed * Time.deltaTime);
 
-        angle += rotationSpeed * Time.deltaTime;
+        angle += -1f * rotationSpeed * Time.deltaTime;
 
         if(angle >= 360f) {
             angle = 0f;
         }
+    }
+
+    public void Upgrade(float b) {
+        rotationSpeed += b;
     }
 }
