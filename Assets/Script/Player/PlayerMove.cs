@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour {
     public float unHitTime = 1.0f;
     public float attackSpeed = 1.0f;
     public float hpHeal = 1.0f;
+    public float spinDamage = 1.0f;
 
     public bool isFacingRight;
     public bool isHit = false;
@@ -58,13 +59,12 @@ public class PlayerMove : MonoBehaviour {
 
     void Awake() {
         isFacingRight = true;
-        TagCheck("wifiCard");
-        TagCheck("arrowCard");
+        TagCheck("bluetoothCard");
     }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            TagCheck("wifiCard");
+            TagCheck("bluetoothCard");
         }
         Flip();
     }
@@ -142,7 +142,7 @@ public class PlayerMove : MonoBehaviour {
                     arrow_Attack = isArrow.GetComponent<Arrow_Attack>();
                 }
                 else {
-                    Debug.Log("Upgrade");
+                    arrow_Attack.count++;
                 }
                 break;
 
@@ -153,7 +153,7 @@ public class PlayerMove : MonoBehaviour {
                     blueTooth_Attack = isBlue.GetComponent<BlueTooth_Attack>();
                 }
                 else {
-                    Debug.Log("Upgrade");
+                    blueTooth_Attack.maxCount++;
                 }
                 break;
 
@@ -232,7 +232,7 @@ public class PlayerMove : MonoBehaviour {
                     packet_Attack = isDdos.GetComponent<Packet_Attack>();
                 }
                 else {
-                    Debug.Log("Upgrade");
+                    packet_Attack.AttackCount++;
                 }
                 break;
 
@@ -243,7 +243,7 @@ public class PlayerMove : MonoBehaviour {
                     fireWall = isFirewall.GetComponent<FireWall>();
                 }
                 else {
-                    Debug.Log("Upgrade");
+                    fireWall.sizeUp();
                 }
                 break;
 
@@ -273,9 +273,14 @@ public class PlayerMove : MonoBehaviour {
                 break;
 
             case "recyclebinCard" :
-                isTrash = Instantiate(Firewall_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                isTrash.transform.parent = this.transform;
-                trashBomb_Attack = isTrash.GetComponent<TrashBomb_Attack>();
+                if(isTrash == null) {
+                    isTrash = Instantiate(TrashCan_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    isTrash.transform.parent = this.transform;
+                    trashBomb_Attack = isTrash.GetComponent<TrashBomb_Attack>();
+                }
+                else {
+                    trashBomb_Attack.AttackCount++;
+                }
                 break;
 
             case "wifiCard" :

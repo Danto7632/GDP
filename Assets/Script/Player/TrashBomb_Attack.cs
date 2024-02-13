@@ -8,27 +8,28 @@ public class TrashBomb_Attack : MonoBehaviour {
     public TrashBomb trashBomb;   
 
     public float AttackSpeed = 2.0f;
+    public float AttackCount = 1.0f;
 
-    public float plusVectorX;
-    public float plusVectorY;
+    public float x;
+    public float y;
 
     void Start() {
         StartCoroutine(RepeatCoroutine());
     }
 
-    void Attack(float x, float y) {
-        TrashBomb = Instantiate(TrashBombPrefab, new Vector2(transform.position.x + x + 2.5f, transform.position.y + y + 2.5f), Quaternion.Euler(0f, 0f, 150f));
-        trashBomb = TrashBomb.GetComponent<TrashBomb>();
-        Vector2 Position = new Vector2(transform.position.x + x, transform.position.y + y);
-        StartCoroutine(RepeatCoroutine());
-    }
-
     IEnumerator RepeatCoroutine() {
-        plusVectorX = Random.Range(-2.5f, 2.5f);
-        plusVectorY = Random.Range(-2.5f, 2.5f);
+        for(int i = 0; i < AttackCount; i++) {
+            x = Random.Range(-2.5f, 2.5f);
+            y = Random.Range(-2.5f, 2.5f);
+
+            TrashBomb = Instantiate(TrashBombPrefab, new Vector2(transform.position.x + x + 2.5f, transform.position.y + y + 2.5f), Quaternion.Euler(0f, 0f, 150f));
+            trashBomb = TrashBomb.GetComponent<TrashBomb>();
+            Vector2 Position = new Vector2(transform.position.x + x, transform.position.y + y);
+        }
 
         yield return new WaitForSeconds(AttackSpeed);
-        Attack(plusVectorX, plusVectorY);
+
+        StartCoroutine(RepeatCoroutine());
     }
 
     public void Upgrade(float b) {

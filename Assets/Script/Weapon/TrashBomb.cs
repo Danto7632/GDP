@@ -12,6 +12,7 @@ public class TrashBomb : MonoBehaviour {
 
     void Start() {
         Position = new Vector2(transform.position.x - 2.5f, transform.position.y - 2.5f);
+        box2D.enabled = false;
     }
 
     void Update() {
@@ -23,6 +24,7 @@ public class TrashBomb : MonoBehaviour {
         float distance = direction.magnitude;
 
         if(distance > 0.1f) {
+            box2D.enabled = true;
             Vector2 movement = direction.normalized * BombSpeed * Time.deltaTime;
             rb.MovePosition(rb.position + movement);
         }

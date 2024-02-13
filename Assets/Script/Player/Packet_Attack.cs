@@ -9,25 +9,24 @@ public class Packet_Attack : MonoBehaviour {
     public PacketBullet packetBullet;   
 
     public float AttackSpeed = 1.0f;
+    public float AttackCount = 1.0f;
 
     void OnTriggerEnter2D(Collider2D other) {
         if(targetingEnemy == null && LayerMask.LayerToName(other.gameObject.layer) == "Enemy") {
             targetingEnemy = other.gameObject;
             Debug.Log("EnemyDetectionRange");
             StartCoroutine(RepeatCoroutine(other));
-    
         }
-    }
-
-    void Attack(Collider2D Enemy) {
-        Packet = Instantiate(WeaponPrefab, transform.position, Quaternion.identity);
     }
 
     IEnumerator RepeatCoroutine(Collider2D Enemy) {
         while (Enemy != null) {
             yield return new WaitForSeconds(AttackSpeed);
             if (Enemy != null) {
-                Attack(Enemy);
+                for(int i = 0; i < AttackCount; i++) {
+                    Packet = Instantiate(WeaponPrefab, transform.position, Quaternion.identity);
+                    yield return new WaitForSeconds(0.2f);
+                }
             }
         }
     }

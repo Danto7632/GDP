@@ -110,6 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlueToothPrefab: {fileID: 3804502955445945251, guid: 978ece4620c654f08914009aeb8fa335, type: 3}
   BlueTooth: {fileID: 0}
-  targetingEnemy: {fileID: 0}
+  targetingEnemies: []
   blueToothBolt: {fileID: 0}
+  maxCount: 1
+  count: 1
   AttackSpeed: 2
+  AttackCount: 1

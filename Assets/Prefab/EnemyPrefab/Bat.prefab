@@ -108,6 +108,7 @@ MonoBehaviour:
   Enemy: {fileID: 494630562949707870}
   rb: {fileID: 4419631508443385569}
   sp: {fileID: 8710804697747939081}
+  box2D: {fileID: 6511982618391949312}
   fireWall: {fileID: 0}
   wifiSp: {fileID: 0}
   speed: 15

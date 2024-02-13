@@ -13,13 +13,16 @@ public class EnemyMove : MonoBehaviour {
 
     public Rigidbody2D rb;
     public SpriteRenderer sp;
+    public BoxCollider2D box2D;
     public FireWall fireWall;
+    public PlayerMove playerMove;
 
     public SpriteRenderer wifiSp;
 
     public float speed = 15.0f;
-    public int Hp = 5;
+    public float Hp = 5f;
     public int ExpValue = 1;
+    public int poisonCount = 3;
 
     public float plusVectorX;
     public float plusVectorY;
@@ -38,6 +41,7 @@ public class EnemyMove : MonoBehaviour {
 
     void FindPlayer() {
         Player = GameObject.FindWithTag("Player");
+        playerMove = Player.GetComponent<PlayerMove>();
         playerPosition = Player.transform;
     }
 
@@ -131,6 +135,10 @@ public class EnemyMove : MonoBehaviour {
                     Destroy(gameObject);
                 }
                 break;
+
+            case "Spin" :
+                StartCoroutine(Poison());
+                break;
         }  
     }
 
@@ -176,12 +184,27 @@ public class EnemyMove : MonoBehaviour {
     }
 
     void ExpDrop() {
+        box2D.enabled = false;
         for(int i = 0; i < ExpValue; i++) {
             plusVectorX = Random.Range(-0.1f, 0.1f);
             plusVectorY = Random.Range(-0.1f, 0.1f);
 
             Exp = Instantiate(ExpPrefab, new Vector2(transform.position.x + plusVectorX, transform.position.y + plusVectorY), Quaternion.identity);
             Exp.transform.parent = ExpNode.transform;
+        }
+    }
+
+    IEnumerator Poison() {
+        Hp -= playerMove.spinDamage;
+        poisonCount--;
+
+        yield return new WaitForSeconds(1.0f);
+
+        if(poisonCount != 0) {
+            StartCoroutine(Poison());
+        }
+        else {
+            poisonCount = 3;
         }
     }
 }

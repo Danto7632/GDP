@@ -5,32 +5,56 @@ using UnityEngine;
 public class BlueTooth_Attack : MonoBehaviour {
     public GameObject BlueToothPrefab;
     public GameObject BlueTooth;
-    public GameObject targetingEnemy;
+    public List<GameObject> targetingEnemies = new List<GameObject>();
     public BlueToothBolt blueToothBolt;   
 
+    public int maxCount = 1;
+    public int count;
     public float AttackSpeed = 2.0f;
+    public float AttackCount = 1.0f;
 
-    void OnTriggerStay2D(Collider2D other) {
-        if(targetingEnemy == null && LayerMask.LayerToName(other.gameObject.layer) == "Enemy") {
-            targetingEnemy = other.gameObject;
-            Debug.Log("EnemyDetectionRange");
-            StartCoroutine(RepeatCoroutine(other));
-    
-        }
+    void Start() {
+        StartCoroutine(RepeatCoroutine());
     }
 
-    void Attack(Collider2D Enemy) {
-        BlueTooth = Instantiate(BlueToothPrefab, new Vector2(Enemy.transform.position.x, Enemy.transform.position.y + 0.75f), Quaternion.identity);
-        BlueTooth.transform.parent = Enemy.transform;
-    }
-
-    IEnumerator RepeatCoroutine(Collider2D Enemy) {
-        while (Enemy != null) {
-            yield return new WaitForSeconds(AttackSpeed);
-            if (Enemy != null) {
-                Attack(Enemy);
+    void OnTriggerEnter2D(Collider2D other) {
+        if(LayerMask.LayerToName(other.gameObject.layer) == "Enemy") {
+            GameObject enemy = other.gameObject;
+            if (!targetingEnemies.Contains(enemy)) {
+                targetingEnemies.Add(enemy);
+                Debug.Log("EnemyDetectionRange");
             }
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Enemy") {
+            GameObject enemy = other.gameObject;
+            if (targetingEnemies.Contains(enemy)) {
+                targetingEnemies.Remove(enemy);
+            }
+        }
+    }
+
+    void Attack(GameObject enemy) {
+        BlueTooth = Instantiate(BlueToothPrefab, new Vector2(enemy.transform.position.x, enemy.transform.position.y + 0.75f), Quaternion.identity);
+        BlueTooth.transform.parent = enemy.transform;
+    }
+
+    IEnumerator RepeatCoroutine() {
+        yield return new WaitForSeconds(AttackSpeed);
+
+        if(maxCount > targetingEnemies.Count) {
+            count = targetingEnemies.Count;
+        }
+
+        for(int i = 0; i < count; i++) {
+            if(targetingEnemies[i] != null) {
+                Attack(targetingEnemies[i]);
+            }
+        }
+
+        StartCoroutine(RepeatCoroutine());
     }
 
     public void Upgrade(float b) {

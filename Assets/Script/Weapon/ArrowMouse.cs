@@ -5,6 +5,9 @@ using UnityEngine;
 public class ArrowMouse : MonoBehaviour {
     public Vector3 mousePosition;
     public Vector2 direction;
+    public int count;
+    public int number;
+    public float angle;
 
     public Rigidbody2D rb;
 
@@ -13,6 +16,9 @@ public class ArrowMouse : MonoBehaviour {
         mousePosition.z = 0f;
 
         direction = (mousePosition - transform.position).normalized;
+
+        angle = 360f / count * number;
+        direction = Quaternion.Euler(0, 0, angle) * direction;
         transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
 
         Destroy(gameObject, 5f);

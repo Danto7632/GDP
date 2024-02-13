@@ -5,7 +5,9 @@ using UnityEngine;
 public class Arrow_Attack : MonoBehaviour {
     public GameObject ArrowPrefab;
     public GameObject Arrow;
+    public ArrowMouse arrowMouse;
 
+    public int count = 1;
     public float AttackSpeed = 2.0f;
 
     void Start() {
@@ -13,7 +15,12 @@ public class Arrow_Attack : MonoBehaviour {
     }
 
     void Attack() {
-        Arrow = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
+        for(int i = 1; i <= count; i++) {
+            Arrow = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
+            arrowMouse = Arrow.GetComponent<ArrowMouse>();
+            arrowMouse.count = count;
+            arrowMouse.number = i;
+        }
         StartCoroutine(RepeatCoroutine());
     }
 

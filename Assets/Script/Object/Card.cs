@@ -27,7 +27,7 @@ public class Card : MonoBehaviour {
 
         do
         {
-            newNumber = Random.Range(0, 12);
+            newNumber = Random.Range(0, 15);
         } while (usedNumbers.Contains(newNumber));
 
         usedNumbers.Add(newNumber);
