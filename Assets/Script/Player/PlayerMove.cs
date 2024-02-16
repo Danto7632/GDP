@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMove : MonoBehaviour {
 
@@ -8,7 +9,9 @@ public class PlayerMove : MonoBehaviour {
 
     public GameObject canvas;
 
-    public int Hp = 10;
+    public int[] cardLevel = new int[8];
+
+    public float Hp = 9f;
     public int maxHp = 10;
     public float Exp = 0.0f;
     public float ExpUp = 1.0f;
@@ -26,6 +29,7 @@ public class PlayerMove : MonoBehaviour {
     public SpriteRenderer sp;
     public BoxCollider2D box2D;
     public Card card;
+    public Canvas canvasComponent;
 
     public Wifi_Attack wifi_Attack;
     public Packet_Attack packet_Attack;
@@ -35,6 +39,8 @@ public class PlayerMove : MonoBehaviour {
     public TrashBomb_Attack trashBomb_Attack;
     public FireWall fireWall;
     public Pill_Attack pill_Attack;
+
+
     public PillCircle pillCircle;
 
     public GameObject Wifi_Weapon;
@@ -47,6 +53,8 @@ public class PlayerMove : MonoBehaviour {
     public GameObject Pill_Weapon;
 
     public GameObject Enemy_Node;
+    public GameObject hpBar;
+    public Hp_Bar hp_Bar;
 
     public GameObject isWifi;
     public GameObject isDdos;
@@ -60,6 +68,11 @@ public class PlayerMove : MonoBehaviour {
     void Awake() {
         isFacingRight = true;
         TagCheck("bluetoothCard");
+        InvokeRepeating("Heal", 0.1f, 10f);
+    }
+
+    void Start() {
+        Array.Fill(cardLevel, 0);
     }
 
     void Update() {
@@ -75,6 +88,8 @@ public class PlayerMove : MonoBehaviour {
 
         movement.Normalize();
         rb.velocity = movement * moveSpeed;
+
+        hp_Bar.CheckHp();
     }
 
     void Flip() {
@@ -94,11 +109,12 @@ public class PlayerMove : MonoBehaviour {
             StartCoroutine(UnHit());
         }
         if(LayerMask.LayerToName(other.gameObject.layer) == "Exp") {
-            Exp++;
+            Exp += ExpTimes;
             if(Exp == ExpUp) {
                 ExpUp += 4;
                 Exp = 0;
                 card.CardInstantiate();
+                canvasComponent.renderMode = RenderMode.ScreenSpaceCamera;
             }
         }
     }
@@ -109,11 +125,12 @@ public class PlayerMove : MonoBehaviour {
             StartCoroutine(UnHit());
         }
         if(LayerMask.LayerToName(other.gameObject.layer) == "Exp") {
-            Exp++;
+            Exp += ExpTimes;
             if(Exp == ExpUp) {
                 ExpUp += 4;
                 Exp = 0;
                 card.CardInstantiate();
+                canvasComponent.renderMode = RenderMode.ScreenSpaceCamera;
             }
         }
 
@@ -135,7 +152,12 @@ public class PlayerMove : MonoBehaviour {
 
     public void TagCheck(string tag) {
         switch(tag) {
-            case "arrowCard" :
+            case "arrowCard" : //0
+
+                if(cardLevel[0] < 3) {
+                    cardLevel[0]++;
+                }
+                
                 if(isArrow == null) {
                     isArrow = Instantiate(Arrow_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isArrow.transform.parent = this.transform;
@@ -146,7 +168,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "bluetoothCard" :
+            case "bluetoothCard" : //1
+
+                if(cardLevel[1] < 3) {
+                    cardLevel[1]++;
+                }
+
                 if(isBlue == null) {
                     isBlue = Instantiate(BlueTooth_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isBlue.transform.parent = this.transform;
@@ -157,7 +184,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "bugCard" :
+            case "bugCard" : //2
+
+                if(cardLevel[2] < 3) {
+                    cardLevel[2]++;
+                }
+
                 if(isBug == null) {
                     isBug = Instantiate(Bug_Weapon, new Vector2(transform.position.x + 0.4f, transform.position.y + 0.5f), Quaternion.identity);
                     isBug.transform.parent = this.transform;
@@ -225,7 +257,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "ddosCard" :
+            case "ddosCard" : //3
+
+                if(cardLevel[3] < 3) {
+                    cardLevel[3]++;
+                }
+
                 if(isDdos == null) {
                     isDdos = Instantiate(Ddos_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isDdos.transform.parent = this.transform;
@@ -236,7 +273,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "firewallCard" :
+            case "firewallCard" : //4
+
+                if(cardLevel[4] < 3) {
+                    cardLevel[4]++;
+                }
+
                 if(isFirewall == null) {
                     isFirewall = Instantiate(Firewall_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isFirewall.transform.parent = this.transform;
@@ -272,7 +314,12 @@ public class PlayerMove : MonoBehaviour {
                 moveSpeed += 0.1f;
                 break;
 
-            case "recyclebinCard" :
+            case "recyclebinCard" : //5
+
+                if(cardLevel[5] < 3) {
+                    cardLevel[5]++;
+                }
+
                 if(isTrash == null) {
                     isTrash = Instantiate(TrashCan_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isTrash.transform.parent = this.transform;
@@ -283,7 +330,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "wifiCard" :
+            case "wifiCard" : //6
+
+                if(cardLevel[6] < 3) {
+                    cardLevel[6]++;
+                }
+
                 if(isWifi == null) {
                     isWifi = Instantiate(Wifi_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isWifi.transform.parent = this.transform;
@@ -294,7 +346,12 @@ public class PlayerMove : MonoBehaviour {
                 }
                 break;
 
-            case "pillCard" :
+            case "pillCard" : //7
+
+                if(cardLevel[7] < 3) {
+                    cardLevel[7]++;
+                }
+
                 if(isPill == null) {
                     isPill = Instantiate(Pill_Weapon, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                     isPill.transform.parent = this.transform;
@@ -304,6 +361,13 @@ public class PlayerMove : MonoBehaviour {
                     pill_Attack.Pill_Instantiate();
                 }
                 break;
+        }
+        canvasComponent.renderMode = RenderMode.ScreenSpaceOverlay;
+    }
+
+    void Heal() {
+        if(Hp < maxHp) {
+            Hp += hpHeal;
         }
     }
 }

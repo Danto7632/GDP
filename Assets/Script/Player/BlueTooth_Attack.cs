@@ -9,7 +9,6 @@ public class BlueTooth_Attack : MonoBehaviour {
     public BlueToothBolt blueToothBolt;   
 
     public int maxCount = 1;
-    public int count;
     public float AttackSpeed = 2.0f;
     public float AttackCount = 1.0f;
 
@@ -44,11 +43,7 @@ public class BlueTooth_Attack : MonoBehaviour {
     IEnumerator RepeatCoroutine() {
         yield return new WaitForSeconds(AttackSpeed);
 
-        if(maxCount > targetingEnemies.Count) {
-            count = targetingEnemies.Count;
-        }
-
-        for(int i = 0; i < count; i++) {
+        for(int i = 0; i < Mathf.Min(maxCount, targetingEnemies.Count); i++) {
             if(targetingEnemies[i] != null) {
                 Attack(targetingEnemies[i]);
             }
