@@ -9,6 +9,12 @@ public class Card : MonoBehaviour {
     public int randomNumber;
     public bool isGamePaused = false;
 
+    public PlayerMove playerMove;
+
+    void Awake() {
+        playerMove = Player.GetComponent<PlayerMove>();
+    }
+
     public void CardInstantiate() {
 
         usedNumbers.Clear();
@@ -17,8 +23,8 @@ public class Card : MonoBehaviour {
             randomNumber = GetUniqueRandomNumber();
             GameObject card = Instantiate(cardPrefab[randomNumber], new Vector2(Player.transform.position.x + (i * 6), Player.transform.position.y), Quaternion.identity);
             card.transform.parent = this.gameObject.transform;
-            Time.timeScale = 0f;
         }
+        playerMove.PausedTimer();
     }
 
     int GetUniqueRandomNumber()
@@ -36,7 +42,7 @@ public class Card : MonoBehaviour {
     }
 
     public void RemoveAllChildren() {
-        Time.timeScale = 1f;
+        playerMove.StartTimer();
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

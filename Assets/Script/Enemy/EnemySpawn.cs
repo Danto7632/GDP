@@ -12,10 +12,13 @@ public class EnemySpawn : MonoBehaviour {
 
     public bool gameOver = false;
     public float spawnTime = 3.0f;
+    public float timer_Check = 120f;
 
     public GameObject EnemyPrefab;
     public GameObject SpawnEnemies;
     public GameObject EnemyNode;
+
+    public PlayerMove playerMove;
 
     public Dictionary<int, Vector2> coordinateDictionary = new Dictionary<int, Vector2>();
 
@@ -55,6 +58,15 @@ public class EnemySpawn : MonoBehaviour {
         StartCoroutine(RepeatCoroutine());
     }
 
+    void Update() {
+        if(playerMove.timer == timer_Check) {
+            Debug.Log("wave");
+            timer_Check += 120f;
+            spawnTime -= 0.2f;
+            ALOTEnemy_Spawn();
+        }
+    }
+
     void SpawnEnemy() {
         spawnRange[0] = spawnNumber - 5;
         spawnRange[1] = spawnNumber + 5;
@@ -92,6 +104,10 @@ public class EnemySpawn : MonoBehaviour {
             yield return new WaitForSeconds(3f);
             SpawnEnemy();
         }
+    }
+
+    void ALOTEnemy_Spawn() {
+
     }
 }
 

@@ -2,13 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour {
+
+    public float minX = -25f; // X 축 최소값
+    public float maxX = 25f;  // X 축 최대값
+    public float minY = -25f; // Y 축 최소값
+    public float maxY = 25f;  // Y 축 최대값
 
     Vector2 movement = new Vector2();
 
     public GameObject canvas;
+    public Text text;
+    public GameObject endPannel;
 
+    public float timer = 0f;
+    public string timer_string = "0";
+    public string timer_m = null;
+    public string timer_s = null;
     public int[] cardLevel = new int[8];
 
     public float Hp = 9f;
@@ -69,16 +81,48 @@ public class PlayerMove : MonoBehaviour {
         isFacingRight = true;
         TagCheck("bluetoothCard");
         InvokeRepeating("Heal", 0.1f, 10f);
+        StartTimer();
     }
 
     void Start() {
         Array.Fill(cardLevel, 0);
+
     }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
             TagCheck("bluetoothCard");
         }
+        if(Input.GetKeyDown(KeyCode.M)) {
+            PausedTimer();
+        }
+        if(Input.GetKeyDown(KeyCode.N)) {
+            StartTimer();
+        }
+
+        if(Hp <= 0f) {
+            endPannel.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+
+        if(((int)(timer / 60f)) < 10) {
+            timer_m = "0";
+        }
+        else {
+            timer_m = null;
+        }
+        
+        if(((int)(timer % 60f)) < 10) {
+            timer_s = "0";
+        }
+        else {
+            timer_s = null;
+        }
+
+        timer_string = timer_m + ((int)(timer / 60f)).ToString() + " : " +  timer_s + ((int)(timer % 60f)).ToString();
+        text.text = timer_string;
+
         Flip();
     }
 
@@ -90,6 +134,13 @@ public class PlayerMove : MonoBehaviour {
         rb.velocity = movement * moveSpeed;
 
         hp_Bar.CheckHp();
+
+        
+        Vector2 currentPosition = rb.position;
+        currentPosition.x = Mathf.Clamp(currentPosition.x, minX, maxX);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, minY, maxY);
+        rb.position = currentPosition;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void Flip() {
@@ -101,6 +152,12 @@ public class PlayerMove : MonoBehaviour {
             sp.flipX = !sp.flipX;
             isFacingRight = !isFacingRight;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if(LayerMask.LayerToName(other.gameObject.layer) == "Wall") {
+            Debug.Log("Wall");
+        }         
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -369,5 +426,20 @@ public class PlayerMove : MonoBehaviour {
         if(Hp < maxHp) {
             Hp += hpHeal;
         }
+    }
+
+
+    public void StartTimer() {
+        Time.timeScale = 1f;
+        InvokeRepeating("Timer", 0.1f, 1f);
+    }
+
+    public void Timer() {
+        timer += 1f;
+    }
+
+    public void PausedTimer() {
+        Time.timeScale = 0f;
+        CancelInvoke("Timer");
     }
 }
