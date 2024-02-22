@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5759307802575894865}
   - component: {fileID: 4027517032289484610}
   - component: {fileID: -2342298307187565328}
-  - component: {fileID: 727528718439877320}
+  - component: {fileID: 1292132601750045608}
   m_Layer: 6
   m_Name: Cat
   m_TagString: Enemy
@@ -181,7 +181,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84375, y: 0.6875}
   m_EdgeRadius: 0
---- !u!114 &727528718439877320
+--- !u!114 &1292132601750045608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,8 +194,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  ExpPrefab: {fileID: 0}
+  Exp: {fileID: 0}
+  ExpNode: {fileID: 0}
   playerPosition: {fileID: 0}
   Enemy: {fileID: 7436951199543417053}
   rb: {fileID: 4027517032289484610}
   sp: {fileID: 8465234513637932983}
-  speed: 15
+  box2D: {fileID: -2342298307187565328}
+  fireWall: {fileID: 0}
+  playerMove: {fileID: 0}
+  wifiSp: {fileID: 0}
+  speed: 12
+  Hp: 8
+  ExpValue: 2
+  poisonCount: 3
+  plusVectorX: 0
+  plusVectorY: 0
+  isWifi: 0
+  isFireWallAllow: 1

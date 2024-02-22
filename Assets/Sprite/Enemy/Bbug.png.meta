@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24eb00e04fee54d389e5631ea64724b2
+guid: 8c968ed3c3b354b1dabb5c6de173b96a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,10 +110,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bbug_0
+      name: bBug_0
       rect:
         serializedVersion: 2
         x: 1
+        y: 44
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c545980672a9451896cb4c590bd5815
+      internalID: 215908047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bBug_1
+      rect:
+        serializedVersion: 2
+        x: 33
         y: 44
         width: 30
         height: 17
@@ -124,18 +145,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d43ca34aeff34780b9a7d806d27a9d0
-      internalID: -1162724823
+      spriteID: 77c1d4cd9c0b1465cb5206a5b166525f
+      internalID: -305004107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bbug_1
+      name: bBug_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 44
+        x: 1
+        y: 12
         width: 30
         height: 16
       alignment: 0
@@ -145,17 +166,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af9597a34cbb6460eb79118c8f399753
-      internalID: -1353816392
+      spriteID: 9c61780e3341f4bf2a707f66f6307a2c
+      internalID: 1923417363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bbug_2
+      name: bBug_3
       rect:
         serializedVersion: 2
-        x: 1
+        x: 33
         y: 12
         width: 30
         height: 15
@@ -166,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bedf73383ff8943b5bd84da7aa45293a
-      internalID: 1839916207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bbug_3
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 12
-        width: 30
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8743477811a545a5b6d3811f11f48bf
-      internalID: -1947103964
+      spriteID: 3f5b2f21b85af465eaee7903e3e089b2
+      internalID: -1327204060
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bbug_0: -1162724823
-      Bbug_1: -1353816392
-      Bbug_2: 1839916207
-      Bbug_3: -1947103964
+      bBug_0: 215908047
+      bBug_1: -305004107
+      bBug_2: 1923417363
+      bBug_3: -1327204060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

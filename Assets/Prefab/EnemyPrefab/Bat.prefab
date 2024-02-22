@@ -110,10 +110,12 @@ MonoBehaviour:
   sp: {fileID: 8710804697747939081}
   box2D: {fileID: 6511982618391949312}
   fireWall: {fileID: 0}
+  playerMove: {fileID: 0}
   wifiSp: {fileID: 0}
   speed: 15
-  Hp: 5
+  Hp: 3
   ExpValue: 1
+  poisonCount: 3
   plusVectorX: 0
   plusVectorY: 0
   isWifi: 0

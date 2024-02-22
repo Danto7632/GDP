@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8751cf9f9d11a410089028122a70e304
+guid: f2165d2bde996497f81f66d036e016a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,7 +113,7 @@ TextureImporter:
       name: Rabbit_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 102
         y: 8
         width: 15
         height: 15
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5753666076de44968d9ae13fcce2bcb
-      internalID: -919969533
+      spriteID: e4bc34aa60aa94694a773a257802067a
+      internalID: -155007229
       vertices: []
       indices: 
       edges: []
@@ -134,19 +134,19 @@ TextureImporter:
       name: Rabbit_1
       rect:
         serializedVersion: 2
-        x: 43
-        y: 8
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 71
+        y: 10
+        width: 15
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c659d4ca75bd467c9533226ae75d968
-      internalID: -1607204563
+      spriteID: 251a2a9a4aa1b404a82a594dfaa8873a
+      internalID: 662270243
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: Rabbit_2
       rect:
         serializedVersion: 2
-        x: 75
-        y: 8
+        x: 38
+        y: 9
         width: 15
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fafe82413e69948f78b17b1a67a48c69
-      internalID: -1443799635
+      spriteID: cc7f975f99e414888b13331302a168e5
+      internalID: 779229509
       vertices: []
       indices: 
       edges: []
@@ -176,10 +176,10 @@ TextureImporter:
       name: Rabbit_3
       rect:
         serializedVersion: 2
-        x: 107
-        y: 7
+        x: 6
+        y: 8
         width: 15
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4efeb526add64a24b5f15ed6b007836
-      internalID: 1874418914
+      spriteID: 6692c9b7f76814326b93bf934ac919b3
+      internalID: 574189835
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Rabbit_0: -919969533
-      Rabbit_1: -1607204563
-      Rabbit_2: -1443799635
-      Rabbit_3: 1874418914
+      Rabbit_0: -155007229
+      Rabbit_1: 662270243
+      Rabbit_2: 779229509
+      Rabbit_3: 574189835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

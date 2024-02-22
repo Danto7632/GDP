@@ -12,9 +12,12 @@ public class EnemySpawn : MonoBehaviour {
 
     public bool gameOver = false;
     public float spawnTime = 3.0f;
-    public float timer_Check = 120f;
+    public float timer_Check = 300f;
 
-    public GameObject EnemyPrefab;
+    public int wave = 1;
+    public int RandomModSpawn;
+
+    public GameObject[] EnemyPrefab = new GameObject[6];
     public GameObject SpawnEnemies;
     public GameObject EnemyNode;
 
@@ -59,10 +62,17 @@ public class EnemySpawn : MonoBehaviour {
     }
 
     void Update() {
+        if(Input.GetKeyDown(KeyCode.L)) {
+            ALOTEnemy_Spawn();
+        }
         if(playerMove.timer == timer_Check) {
             Debug.Log("wave");
-            timer_Check += 120f;
+            timer_Check += 300f;
             spawnTime -= 0.2f;
+            wave++;
+            if(wave == 6) {
+                wave--;
+            }
             ALOTEnemy_Spawn();
         }
     }
@@ -70,6 +80,8 @@ public class EnemySpawn : MonoBehaviour {
     void SpawnEnemy() {
         spawnRange[0] = spawnNumber - 5;
         spawnRange[1] = spawnNumber + 5;
+
+        RandomModSpawn = Random.Range(0, wave + 1);
 
         for(int i = 0; i < 2; i++) {
             spawnRange[i] %= 16;
@@ -94,8 +106,10 @@ public class EnemySpawn : MonoBehaviour {
 
         plusVectorX = Random.Range(-7.5f, 7.5f);
         plusVectorY = Random.Range(-7.5f, 7.5f);
+        
+        
 
-        SpawnEnemies = Instantiate(EnemyPrefab, new Vector2(coordinateDictionary[spawnNumber].x + plusVectorX, coordinateDictionary[spawnNumber].y + plusVectorY), Quaternion.identity);
+        SpawnEnemies = Instantiate(EnemyPrefab[RandomModSpawn], new Vector2(coordinateDictionary[spawnNumber].x + plusVectorX, coordinateDictionary[spawnNumber].y + plusVectorY), Quaternion.identity);
         SpawnEnemies.transform.parent = EnemyNode.transform;
     }
 
@@ -107,7 +121,10 @@ public class EnemySpawn : MonoBehaviour {
     }
 
     void ALOTEnemy_Spawn() {
-
+        Debug.Log("Big wave");
+        for(int i = 0; i < 3 * wave; i++) {
+            SpawnEnemy();
+        }
     }
 }
 

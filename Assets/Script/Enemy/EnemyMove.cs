@@ -19,9 +19,9 @@ public class EnemyMove : MonoBehaviour {
 
     public SpriteRenderer wifiSp;
 
-    public float speed = 15.0f;
-    public float Hp = 5f;
-    public int ExpValue = 1;
+    public float speed;
+    public float Hp;
+    public int ExpValue;
     public int poisonCount = 3;
 
     public float plusVectorX;

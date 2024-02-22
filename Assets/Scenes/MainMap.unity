@@ -653,7 +653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150141220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.46, y: 2.63, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1380,7 +1380,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2224,8 +2224,16 @@ MonoBehaviour:
   spawnRange: 0000000000000000
   gameOver: 0
   spawnTime: 3
-  timer_Check: 120
-  EnemyPrefab: {fileID: 7064059065404592580, guid: 1313d3373d73d47c8ba9af3b4066c13e, type: 3}
+  timer_Check: 300
+  wave: 1
+  RandomModSpawn: 0
+  EnemyPrefab:
+  - {fileID: 7064059065404592580, guid: 1313d3373d73d47c8ba9af3b4066c13e, type: 3}
+  - {fileID: 2806267879364703767, guid: c59a50577a68c469fb5ce40ea92b2483, type: 3}
+  - {fileID: 6406296565262774671, guid: b2dc44d653c084d8c916a5747aec7be1, type: 3}
+  - {fileID: 4096947281527268518, guid: 022e4d96c3b7a46079eca70a569619d6, type: 3}
+  - {fileID: 4809408830921885189, guid: ca6596b06c4b54e0aba7f0b627cdb489, type: 3}
+  - {fileID: 8606752701119468570, guid: 811538e2cd47a49fba69fa0ee0b3b601, type: 3}
   SpawnEnemies: {fileID: 0}
   EnemyNode: {fileID: 1905987544}
   playerMove: {fileID: 150141222}

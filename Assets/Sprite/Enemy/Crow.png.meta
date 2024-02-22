@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70d8a884f5074492f9415e745c77c5de
+guid: 98e8f792647b14bf385271721b02051f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bat_0
+      name: Crow_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 101
         y: 12
-        width: 19
+        width: 20
         height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53966f0e1d3a345dba2a6f68ef160566
-      internalID: -396107215
+      spriteID: b4b6573080bda44af824dbc94900e3eb
+      internalID: 822253840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_1
+      name: Crow_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 12
-        width: 19
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 697e8034dd7534a399276aa276059869
-      internalID: -824281087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bat_2
-      rect:
-        serializedVersion: 2
-        x: 71
+        x: 70
         y: 12
         width: 20
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c4d03f8871ce40aca695afb2764b906
-      internalID: 181553026
+      spriteID: ef24e1b1378e9410196cb0975c14ce37
+      internalID: -1039304891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat_3
+      name: Crow_2
       rect:
         serializedVersion: 2
-        x: 103
+        x: 37
         y: 12
-        width: 19
-        height: 14
+        width: 20
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 485f516fb67a0490fb92a29b3d39a379
-      internalID: -669461841
+      spriteID: dbff0e7896c4e424c84394d05d6af978
+      internalID: 506656985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crow_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 11
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7850f39331c1420ab53719d234399cc
+      internalID: -2031622326
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bat_0: -396107215
-      bat_1: -824281087
-      bat_2: 181553026
-      bat_3: -669461841
+      Crow_0: 822253840
+      Crow_1: -1039304891
+      Crow_2: 506656985
+      Crow_3: -2031622326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

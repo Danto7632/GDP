@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8664397123874000481
+--- !u!1 &2806267879364703767
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4794083198395150903}
-  - component: {fileID: 665199561984512988}
-  - component: {fileID: 5683670181348456985}
-  - component: {fileID: 7313756436038598353}
-  - component: {fileID: -594153727662541392}
-  - component: {fileID: 2456826324394748416}
+  - component: {fileID: 5979510292641244322}
+  - component: {fileID: 7195726529124333210}
+  - component: {fileID: 6208114059192280158}
+  - component: {fileID: -4735943883726662167}
+  - component: {fileID: -3605501470273262690}
+  - component: {fileID: 367235517642636710}
   m_Layer: 6
-  m_Name: Bbug
+  m_Name: bBug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4794083198395150903
+--- !u!4 &5979510292641244322
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
+  m_GameObject: {fileID: 2806267879364703767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.42, y: 3.48, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: -1.15, y: 0.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &665199561984512988
+--- !u!212 &7195726529124333210
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
+  m_GameObject: {fileID: 2806267879364703767}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,28 +77,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1162724823, guid: 24eb00e04fee54d389e5631ea64724b2, type: 3}
+  m_Sprite: {fileID: 215908047, guid: 8c968ed3c3b354b1dabb5c6de173b96a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9375, y: 0.53125}
+  m_Size: {x: 0.9375, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5683670181348456985
+--- !u!95 &6208114059192280158
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
+  m_GameObject: {fileID: 2806267879364703767}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d889b3354c87740f5b13c1433ba74046, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d699e8d5e360410fac2fc7cc05014b8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,14 +109,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &7313756436038598353
+--- !u!50 &-4735943883726662167
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
+  m_GameObject: {fileID: 2806267879364703767}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -136,31 +136,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-594153727662541392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691361f09808b4046ada216f7f7cd339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  playerPosition: {fileID: 0}
-  Enemy: {fileID: 4794083198395150903}
-  rb: {fileID: 7313756436038598353}
-  sp: {fileID: 665199561984512988}
-  speed: 15
---- !u!61 &2456826324394748416
+--- !u!61 &-3605501470273262690
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664397123874000481}
+  m_GameObject: {fileID: 2806267879364703767}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -190,12 +172,44 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 0.53125}
-    newSize: {x: 0.9375, y: 0.53125}
+    oldSize: {x: 0.9375, y: 0.5}
+    newSize: {x: 0.9375, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9375, y: 0.53125}
+  m_Size: {x: 0.9375, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &367235517642636710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806267879364703767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691361f09808b4046ada216f7f7cd339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  ExpPrefab: {fileID: 1987252065625430502, guid: cbfc3456864a24033a5092301b6d64aa, type: 3}
+  Exp: {fileID: 0}
+  ExpNode: {fileID: 0}
+  playerPosition: {fileID: 0}
+  Enemy: {fileID: 5979510292641244322}
+  rb: {fileID: -4735943883726662167}
+  sp: {fileID: 7195726529124333210}
+  box2D: {fileID: -3605501470273262690}
+  fireWall: {fileID: 0}
+  playerMove: {fileID: 0}
+  wifiSp: {fileID: 0}
+  speed: 7
+  Hp: 3
+  ExpValue: 1
+  poisonCount: 3
+  plusVectorX: 0
+  plusVectorY: 0
+  isWifi: 0
+  isFireWallAllow: 1
