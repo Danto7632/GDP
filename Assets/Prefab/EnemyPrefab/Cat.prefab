@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  ExpPrefab: {fileID: 0}
+  ExpPrefab: {fileID: 1987252065625430502, guid: cbfc3456864a24033a5092301b6d64aa, type: 3}
   Exp: {fileID: 0}
   ExpNode: {fileID: 0}
   playerPosition: {fileID: 0}
@@ -213,3 +213,4 @@ MonoBehaviour:
   plusVectorY: 0
   isWifi: 0
   isFireWallAllow: 1
+  isBig: 0

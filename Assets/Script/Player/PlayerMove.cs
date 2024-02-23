@@ -79,28 +79,17 @@ public class PlayerMove : MonoBehaviour {
 
     void Awake() {
         isFacingRight = true;
-        TagCheck("bluetoothCard");
         InvokeRepeating("Heal", 0.1f, 10f);
         StartTimer();
     }
 
     void Start() {
         Array.Fill(cardLevel, 0);
-
+        Time.timeScale = 0f;
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.P)) {
-            TagCheck("bluetoothCard");
-        }
-        if(Input.GetKeyDown(KeyCode.M)) {
-            PausedTimer();
-        }
-        if(Input.GetKeyDown(KeyCode.N)) {
-            StartTimer();
-        }
-
-        if(Hp <= 0f) {
+        if(Hp <= 0f || timer >= 1200f) {
             endPannel.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }

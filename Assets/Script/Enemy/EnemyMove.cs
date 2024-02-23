@@ -29,10 +29,23 @@ public class EnemyMove : MonoBehaviour {
 
     public bool isWifi = false;
     public bool isFireWallAllow = true;
+    public bool isBig = false;
 
     void Start() {
         FindPlayer();
         ExpNode = GameObject.FindWithTag("ExpNode");
+        if(isBig) {
+            Vector3 currentScale = transform.localScale;
+
+            currentScale.x *= 5f;
+            currentScale.y *= 5f;
+
+            transform.localScale = currentScale;
+
+            Hp *= 2;
+            speed *= 1.5f;
+            ExpValue *= 2;
+        }
     }
 
     void Update() {

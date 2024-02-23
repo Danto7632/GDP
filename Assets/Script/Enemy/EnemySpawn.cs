@@ -11,6 +11,7 @@ public class EnemySpawn : MonoBehaviour {
     public int[] spawnRange = new int[2];
 
     public bool gameOver = false;
+    public bool isBigEnemy = false;
     public float spawnTime = 3.0f;
     public float timer_Check = 300f;
 
@@ -22,6 +23,7 @@ public class EnemySpawn : MonoBehaviour {
     public GameObject EnemyNode;
 
     public PlayerMove playerMove;
+    public EnemyMove enemyMove;
 
     public Dictionary<int, Vector2> coordinateDictionary = new Dictionary<int, Vector2>();
 
@@ -107,10 +109,13 @@ public class EnemySpawn : MonoBehaviour {
         plusVectorX = Random.Range(-7.5f, 7.5f);
         plusVectorY = Random.Range(-7.5f, 7.5f);
         
-        
-
         SpawnEnemies = Instantiate(EnemyPrefab[RandomModSpawn], new Vector2(coordinateDictionary[spawnNumber].x + plusVectorX, coordinateDictionary[spawnNumber].y + plusVectorY), Quaternion.identity);
         SpawnEnemies.transform.parent = EnemyNode.transform;
+        if(isBigEnemy) {
+            isBigEnemy = false;
+            enemyMove = SpawnEnemies.GetComponent<EnemyMove>();
+            enemyMove.isBig = true;
+        }
     }
 
     IEnumerator RepeatCoroutine() {
@@ -122,6 +127,7 @@ public class EnemySpawn : MonoBehaviour {
 
     void ALOTEnemy_Spawn() {
         Debug.Log("Big wave");
+        isBigEnemy = true;
         for(int i = 0; i < 3 * wave; i++) {
             SpawnEnemy();
         }
