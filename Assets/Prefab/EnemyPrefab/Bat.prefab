@@ -120,6 +120,7 @@ MonoBehaviour:
   plusVectorY: 0
   isWifi: 0
   isFireWallAllow: 1
+  isBig: 0
 --- !u!95 &2195107453151891328
 Animator:
   serializedVersion: 5
@@ -156,7 +157,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

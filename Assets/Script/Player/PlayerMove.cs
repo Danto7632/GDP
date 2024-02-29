@@ -35,6 +35,7 @@ public class PlayerMove : MonoBehaviour {
     public float spinDamage = 1.0f;
 
     public bool isFacingRight;
+    public bool isMoveAllow = true;
     public bool isHit = false;
 
     public Rigidbody2D rb;
@@ -42,6 +43,7 @@ public class PlayerMove : MonoBehaviour {
     public BoxCollider2D box2D;
     public Card card;
     public Canvas canvasComponent;
+    public Animator anim;
 
     public Wifi_Attack wifi_Attack;
     public Packet_Attack packet_Attack;
@@ -86,12 +88,16 @@ public class PlayerMove : MonoBehaviour {
     void Start() {
         Array.Fill(cardLevel, 0);
         Time.timeScale = 0f;
+        anim.Play("Player");
     }
 
     void Update() {
+        if(isMoveAllow) {
+            Player_Anim();
+        }
+
         if(Hp <= 0f || timer >= 1200f) {
-            endPannel.gameObject.SetActive(true);
-            Time.timeScale = 0f;
+            StartCoroutine(Ending());
         }
 
 
@@ -111,8 +117,6 @@ public class PlayerMove : MonoBehaviour {
 
         timer_string = timer_m + ((int)(timer / 60f)).ToString() + " : " +  timer_s + ((int)(timer % 60f)).ToString();
         text.text = timer_string;
-
-        Flip();
     }
 
     void FixedUpdate() {
@@ -120,7 +124,9 @@ public class PlayerMove : MonoBehaviour {
         movement.y = Input.GetAxisRaw("Vertical");
 
         movement.Normalize();
-        rb.velocity = movement * moveSpeed;
+        if(isMoveAllow) {
+            rb.velocity = movement * moveSpeed;
+        }
 
         hp_Bar.CheckHp();
 
@@ -130,17 +136,6 @@ public class PlayerMove : MonoBehaviour {
         currentPosition.y = Mathf.Clamp(currentPosition.y, minY, maxY);
         rb.position = currentPosition;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
-
-    void Flip() {
-        if(movement.x > 0 && !isFacingRight) {
-            sp.flipX = !sp.flipX;
-            isFacingRight = !isFacingRight;
-        }
-        else if(movement.x < 0 && isFacingRight) {
-            sp.flipX = !sp.flipX;
-            isFacingRight = !isFacingRight;
-        }
     }
 
     void OnCollisionEnter2D(Collision2D other) {
@@ -430,5 +425,52 @@ public class PlayerMove : MonoBehaviour {
     public void PausedTimer() {
         Time.timeScale = 0f;
         CancelInvoke("Timer");
+    }
+
+    void Player_Anim() {
+        if(movement.x == 0) {
+            if(movement.y < 0) {
+                anim.Play("Player_Down");
+            }
+            else if(movement.y > 0) {
+                anim.Play("Player_Up");
+            }
+            else if(movement.y == 0) {
+                anim.Play("Player");
+            }
+        }
+        else if(movement.x < 0) {
+            if(movement.y == 0) {
+                anim.Play("Player_Left");
+            }
+            else if(movement.y < 0) {
+                anim.Play("Player_DL");
+            }
+            else if(movement.y > 0) {
+                anim.Play("Player_UL");
+            }
+        }
+        else if(movement.x > 0) {
+            if(movement.y == 0) {
+                anim.Play("Player_Right");
+            }
+            else if(movement.y < 0) {
+                anim.Play("Player_DR");
+            }
+            else if(movement.y > 0) {
+                anim.Play("Player_UR");
+            }
+        }
+    }
+
+    IEnumerator Ending() {
+        rb.velocity = Vector2.zero;
+        isMoveAllow = false;
+        anim.Play("Player_Death");
+
+        yield return new WaitForSeconds(2.1f);
+
+        endPannel.gameObject.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

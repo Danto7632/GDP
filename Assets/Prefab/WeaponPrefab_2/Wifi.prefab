@@ -63,7 +63,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -111,7 +111,8 @@ MonoBehaviour:
   WifiPrefab: {fileID: 8381605502309459461, guid: a2445995926c04d90ae117de01aa05f4, type: 3}
   Wifi: {fileID: 0}
   Player: {fileID: 0}
-  wifiFan: {fileID: 0}
   playerMove: {fileID: 0}
   sp: {fileID: 0}
   AttackSpeed: 4
+  sizeUp: 1
+  isR: 0

@@ -29,6 +29,6 @@ public class ArrowMouse : MonoBehaviour {
     }
 
     void goForward() {
-        rb.AddForce(direction * 0.01f, ForceMode2D.Impulse);
+        rb.AddForce(direction * 0.1f, ForceMode2D.Impulse);
     }
 }

@@ -64,7 +64,7 @@ public class EnemyMove : MonoBehaviour {
             float distance = direction.magnitude;
 
             if(distance > 0.1f) {
-                Vector2 movement = direction.normalized * speed * Time.deltaTime;
+                Vector2 movement = direction.normalized * speed * Time.deltaTime / 10f;
                 rb.MovePosition(rb.position + movement);
 
             // 수정된 부분

@@ -64,9 +64,6 @@ public class EnemySpawn : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.L)) {
-            ALOTEnemy_Spawn();
-        }
         if(playerMove.timer == timer_Check) {
             Debug.Log("wave");
             timer_Check += 300f;

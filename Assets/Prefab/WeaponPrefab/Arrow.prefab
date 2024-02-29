@@ -161,7 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c9ee5ce6733467889bb5672ef532e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 1
   mousePosition: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0}
+  count: 0
+  number: 0
+  angle: 0
   rb: {fileID: 1151794914106830828}

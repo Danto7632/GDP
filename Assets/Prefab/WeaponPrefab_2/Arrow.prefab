@@ -63,7 +63,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -110,4 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrowPrefab: {fileID: 4177446658219577645, guid: 2d739fb62dbd74905bd1ef3f699cb4f9, type: 3}
   Arrow: {fileID: 0}
+  arrowMouse: {fileID: 0}
+  count: 1
   AttackSpeed: 2
