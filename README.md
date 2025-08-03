@@ -63,11 +63,10 @@ IT 테마에 맞는 독창적인 백신/보안 무기들:
 ### 🎁 아이템 시스템 (Item)
 | 이미지 | 아이템명 | 이미지 | 아이템명 | 이미지 | 아이템명 | 이미지 | 아이템명 |
 |--------|---------|--------|---------|--------|---------|--------|---------|
-| <img src="Assets/Sprite/Item/CPU.png" alt="CPU" width="50"/> | **CPU** | <img src="Assets/Sprite/Item/DDos.png" alt="DDos" width="50"/> | **DDos** | <img src="Assets/Sprite/Item/Bug.png" alt="버그" width="50"/> | **Bug** | <img src="Assets/Sprite/Item/Overflow.png" alt="오버플로우" width="50"/> | **Overflow** |
-| <img src="Assets/Sprite/Item/Ram.png" alt="RAM" width="50"/> | **RAM** | <img src="Assets/Sprite/Item/FireWall.png" alt="FireWall" width="50"/> | **FireWall** | <img src="Assets/Sprite/Item/Arrow.png" alt="화살" width="50"/> | **Arrow** | <img src="Assets/Sprite/Item/Pll.png" alt="알약" width="50"/> | **Pll** |
-| <img src="Assets/Sprite/Item/Hdd.png" alt="HDD" width="50"/> | **HDD** | <img src="Assets/Sprite/Item/Ctrl_Z.png" alt="Ctrl+Z" width="50"/> | **Ctrl+Z** | <img src="Assets/Sprite/Item/Formay.png" alt="포맷" width="50"/> | **Format** | - | - |
-| <img src="Assets/Sprite/Item/WIfi.png" alt="WiFi" width="50"/> | **WiFi** | <img src="Assets/Sprite/Item/RecycleBin.png" alt="휴지통" width="50"/> | **RecycleBin** | <img src="Assets/Sprite/Item/LAG.png" alt="지연" width="50"/> | **LAG** | - | - |
-| <img src="Assets/Sprite/Item/BlueTooth.png" alt="BlueTooth" width="50"/> | **BlueTooth** | <img src="Assets/Sprite/Item/Charge.png" alt="충전기" width="50"/> | **Charge** | - | - | - | - |
+| <img src="Assets/Sprite/Item/CPU.png" alt="CPU" width="60"/> | **CPU** | <img src="Assets/Sprite/Item/FireWall.png" alt="FireWall" width="60"/> | **FireWall** | <img src="Assets/Sprite/Item/Bug.png" alt="버그" width="60"/> | **Bug** | <img src="Assets/Sprite/Item/LAG.png" alt="지연" width="60"/> | **LAG** |
+| <img src="Assets/Sprite/Item/Ram.png" alt="RAM" width="60"/> | **RAM** | <img src="Assets/Sprite/Item/Ctrl_Z.png" alt="Ctrl+Z" width="60"/> | **Ctrl+Z** | <img src="Assets/Sprite/Item/Arrow.png" alt="화살" width="60"/> | **Arrow** | <img src="Assets/Sprite/Item/Overflow.png" alt="오버플로우" width="60"/> | **Overflow** |
+| <img src="Assets/Sprite/Item/Hdd.png" alt="HDD" width="60"/> | **HDD** | <img src="Assets/Sprite/Item/RecycleBin.png" alt="휴지통" width="60"/> | **RecycleBin** | <img src="Assets/Sprite/Item/Formay.png" alt="포맷" width="60"/> | **Format** | <img src="Assets/Sprite/Item/Pll.png" alt="알약" width="60"/> | **Pll** |
+| <img src="Assets/Sprite/Item/WIfi.png" alt="WiFi" width="60"/> | **WiFi** | <img src="Assets/Sprite/Item/Charge.png" alt="충전기" width="60"/> | **Charge** | <img src="Assets/Sprite/Item/DDos.png" alt="DDos" width="60"/> | **DDos** | <img src="Assets/Sprite/Item/BlueTooth.png" alt="BlueTooth" width="60"/> | **BlueTooth** |
 
 ### 🗺️ 맵 에셋
 <div align="center">
